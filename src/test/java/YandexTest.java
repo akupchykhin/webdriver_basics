@@ -95,6 +95,9 @@ public class YandexTest {
         @Test(description = "Create a new mail")
     public void newMailCreationTest() {
             createNewEmail();
+            WebElement web = driver.findElement(By.xpath("//span[@data-key='view=compose-autosave-status']"));
+            boolean a = web.isDisplayed();
+            Assert.assertEquals(true, a);
     }
         
         @Test(description = "Save the mail as a draft")
@@ -120,7 +123,9 @@ public class YandexTest {
     public void sendTheEmailTest() {
             createNewEmail();
             sendTheEmail();
-
+            WebElement web = driver.findElement(By.className(" js-mail-Notification-Content"));
+            boolean a = web.isDisplayed();
+            Assert.assertEquals(true, a);
         }
         @Test(description = "Verify, that the mail disappeared from ‘Drafts’ folder.")
     public void verifyDraftIsEmptyTest(){
