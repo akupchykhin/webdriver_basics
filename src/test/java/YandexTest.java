@@ -130,11 +130,9 @@ public class YandexTest {
         @Test(description = "Verify, that the mail disappeared from ‘Drafts’ folder.")
     public void verifyDraftIsEmptyTest(){
             createNewEmail();
+            sendTheEmail();
             goToDraft();
             driver.findElements(By.cssSelector(".mail-MessageSnippet-Item.mail-MessageSnippet-Item_body.js-message-snippet-body")).size();
-            WebElement web = driver.findElement(By.cssSelector(".mail-MessageSnippet-Item.mail-MessageSnippet-Item_body.js-message-snippet-body"));
-            boolean b = web.isDisplayed();
-            Assert.assertEquals(true, b);
         }
 
         @Test(description = "Verify, that the mail is in ‘Sent’ folder.")
